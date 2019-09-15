@@ -1,0 +1,21 @@
+file='''abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+[];',./{}:"<>?|\ '''
+print("Choose one of the below actions \n 1.Encryption \n 2.Decryption")
+inp=int(input())
+key=5
+encrypt=""
+decrypt=""
+if (inp==1):
+    message=input("Enter the message to be encrypted")
+    for char in message:
+        loc=file.find(char)
+        newloc=(loc+key)%64
+        encrypt=encrypt+file[newloc]
+    print (encrypt)
+elif(inp==2):
+    decword=input("Enter the cryptokey to be decrypted")
+    for char in decword:
+        loc=file.find(char)
+        newloc=(loc-key)%64
+        decrypt=decrypt+file[newloc]
+    print (decrypt)
+    
